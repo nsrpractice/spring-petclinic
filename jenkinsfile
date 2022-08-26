@@ -16,8 +16,8 @@ stages {
         }
        stage('Post build actions') {
             steps {
-                 archiveArtifacts artifacts: 'gameoflife-web/target/*.war', followSymlinks: false
-                 junit '**/surefire-reports/*.xml'
+                 archiveArtifacts artifacts: 'target/*.war', followSymlinks: false
+                 junit 'target/surefire-reports/*.xml'
             }
         }
     }
