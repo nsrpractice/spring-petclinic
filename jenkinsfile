@@ -6,9 +6,9 @@ pipeline{
 stages {
         stage('source code') {
             steps {
-	                  https://github.com/nsrpractice/spring-petclinic.git
+	            https://github.com/nsrpractice/spring-petclinic.git
             }
-        }
+            }
         stage('Build the code') {
             steps {
                 sh 'mvn clean package'
