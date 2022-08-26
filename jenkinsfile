@@ -6,7 +6,8 @@ pipeline{
 stages {
         stage('source code') {
             steps {
-	            https://github.com/nsrpractice/spring-petclinic.git
+	            'https://github.com/nsrpractice/spring-petclinic.git'
+                   // git branch: 'main', url: 'https://github.com/KhajasCICDSamples/game-of-life.git'
             }
             }
         stage('Build the code') {
