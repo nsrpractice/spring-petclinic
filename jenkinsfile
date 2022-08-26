@@ -6,7 +6,7 @@ pipeline{
 stages {
         stage('source code') {
             steps {
-                git 'https://github.com/naseerdocs/game-of-life.git'
+	                    git 'https://github.com/naseerdocs/game-of-life.git'
             }
         }
         stage('Build the code') {
