@@ -6,8 +6,8 @@ pipeline{
 stages {
         stage('source code') {
             steps {
-	            'https://github.com/nsrpractice/spring-petclinic.git'
-                   // git branch: 'main', url: 'https://github.com/KhajasCICDSamples/game-of-life.git'
+	            
+                   git branch: 'main', url: 'https://github.com/nsrpractice/spring-petclinic.git'
             }
             }
         stage('Build the code') {
@@ -17,7 +17,7 @@ stages {
         }
        stage('Post build actions') {
             steps {
-                 archiveArtifacts artifacts: 'target/*.war', followSymlinks: false
+                 archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
                  junit 'target/surefire-reports/*.xml'
             }
         }
