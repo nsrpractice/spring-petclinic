@@ -1,0 +1,25 @@
+pipeline{
+  agent { label 'JDK11' }
+  triggers {
+        cron('*/2 * * * *')
+    }
+stages {
+        stage('source code') {
+            steps {
+                git 'https://github.com/naseerdocs/game-of-life.git'
+            }
+        }
+        stage('Build the code') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+       stage('Post build actions') {
+            steps {
+                 archiveArtifacts artifacts: 'gameoflife-web/target/*.war', followSymlinks: false
+                 junit '**/surefire-reports/*.xml'
+            }
+        }
+    }
+
+}
